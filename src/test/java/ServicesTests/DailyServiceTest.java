@@ -28,6 +28,6 @@ public class DailyServiceTest {
         Calendar calendar = Calendar.getInstance(Locale.FRANCE);
         assertThat(year).isEqualTo(calendar.get(Calendar.YEAR));
         assertThat(month).isEqualTo(calendar.get(Calendar.MONTH) + 1);
-        assertThat(day).isEqualTo(calendar.get(Calendar.DAY_OF_MONTH));
+        assertThat(day).isEqualTo(calendar.get(Calendar.DAY_w:qOF_MONTH));
     }
 }
