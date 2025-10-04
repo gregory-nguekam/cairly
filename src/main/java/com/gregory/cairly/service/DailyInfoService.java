@@ -1,5 +1,7 @@
 package com.gregory.cairly.service;
 
+import org.springframework.cglib.core.Local;
+
 import java.time.LocalDate;
 
 public class DailyInfoService {
@@ -26,5 +28,14 @@ public class DailyInfoService {
         return LocalDate.now().getDayOfWeek() + " " + LocalDate.now().getDayOfMonth() +
                 getSuffix(LocalDate.now().getDayOfMonth()) + " " + LocalDate.now().getMonth()
                 + " " + LocalDate.now().getYear();
+    }
+
+    public String getActualRatio() {
+        return LocalDate.now().getDayOfYear()+"/"+LocalDate.now().lengthOfYear();
+    }
+
+
+    public String getActualDateAndRatio() {
+        return getActualDate()  +"\n" + getActualRatio();
     }
 }
