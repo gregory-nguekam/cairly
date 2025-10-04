@@ -33,8 +33,13 @@ public class DailyInfoServiceTest {
         assertThat(currentDate.split(" ").length).isEqualTo(4);
 
         String dayOfWeek = currentDate.split(" ")[0];
-        int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 2));
-        String daySuffix = currentDate.split(" ")[1].substring(2, 4);
+        String dayOfMonthWithSuffix = currentDate.split(" ")[1];
+        if(dayOfMonthWithSuffix.length() == 4) {
+            int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 2));
+            String daySuffix = currentDate.split(" ")[1].substring(2, 4);
+        }
+        int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 1));
+        String daySuffix = currentDate.split(" ")[1].substring(1, 3);
         String month = currentDate.split(" ")[2];
         int year = Integer.parseInt(currentDate.split(" ")[3]);
 
