@@ -23,10 +23,7 @@ public class DailyInfoService {
     }
 
     public String getActualDate() {
-        String dayOfMonthCompleter = "0";
-        if(LocalDate.now().getDayOfMonth() >= 10) {
-            dayOfMonthCompleter = "";
-        }
+        String dayOfMonthCompleter = LocalDate.now().getDayOfMonth() >= 10 ? "" : "0";
         return LocalDate.now().getDayOfWeek() + " " + dayOfMonthCompleter + LocalDate.now().getDayOfMonth() +
                 getSuffix(LocalDate.now().getDayOfMonth()) + " " + LocalDate.now().getMonth() + " " + LocalDate.now().getYear();
     }
