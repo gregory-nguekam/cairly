@@ -1,7 +1,5 @@
 package com.gregory.cairly.service;
 
-import org.springframework.cglib.core.Local;
-
 import java.time.LocalDate;
 
 public class DailyInfoService {
