@@ -1,38 +1,40 @@
-create table public.users
+-- Activer l’extension pour générer des UUID
+CREATE EXTENSION IF NOT EXISTS "uuid-ossp";
+
+-- =========================
+-- Table: users
+-- =========================
+CREATE TABLE users
 (
-    id         bigint generated always as identity
-        primary key,
-    first_name varchar(50)  not null,
-    last_name  varchar(50)  not null,
-    email      varchar(50)  not null,
-    password   varchar(100) not null
+    id         VARCHAR(36) PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    first_name VARCHAR(50)  NOT NULL,
+    last_name  VARCHAR(50)  NOT NULL,
+    email      VARCHAR(50)  NOT NULL,
+    password   VARCHAR(100) NOT NULL
 );
 
-alter table public.users
-    owner to postgres;
 
-create table public.quote
+-- =========================
+-- Table: quote
+-- =========================
+CREATE TABLE quote
 (
-    id     bigint generated always as identity
-        primary key,
-    text   varchar(500) not null,
-    author varchar(50)  not null
+    id     VARCHAR(36) PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    text   VARCHAR(500) NOT NULL,
+    author VARCHAR(50)  NOT NULL
 );
 
-alter table public.quote
-    owner to postgres;
-
-create table public.quote_view
+-- =========================
+-- Table: quote_view
+-- =========================
+CREATE TABLE quote_view
 (
-    id          bigint generated always as identity
-        primary key,
-    date_viewed date   not null,
-    quote_id    bigint not null
-        references public.quote,
-    user_id     bigint not null
-        references public.users
+    id          VARCHAR(36) PRIMARY KEY DEFAULT uuid_generate_v4()::text,
+    date_viewed DATE        NOT NULL,
+    quote_id    VARCHAR(36) NOT NULL REFERENCES quote (id),
+    user_id     VARCHAR(36) NOT NULL REFERENCES users (id)
 );
 
-alter table public.quote_view
-    owner to postgres;
-
+-- Indexes utiles pour les FK (perf)
+CREATE INDEX IF NOT EXISTS idx_quote_view_quote_id ON quote_view (quote_id);
+CREATE INDEX IF NOT EXISTS idx_quote_view_user_id  ON quote_view (user_id);
