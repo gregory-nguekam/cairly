@@ -25,9 +25,9 @@ public class DailyInfoService {
     }
 
     public String getActualDate() {
-        return LocalDate.now().getDayOfWeek() + " " + LocalDate.now().getDayOfMonth() +
-                getSuffix(LocalDate.now().getDayOfMonth()) + " " + LocalDate.now().getMonth()
-                + " " + LocalDate.now().getYear();
+        String dayOfMonthCompleter = LocalDate.now().getDayOfMonth() >= 10 ? "" : "0";
+        return LocalDate.now().getDayOfWeek() + " " + dayOfMonthCompleter + LocalDate.now().getDayOfMonth() +
+                getSuffix(LocalDate.now().getDayOfMonth()) + " " + LocalDate.now().getMonth() + " " + LocalDate.now().getYear();
     }
 
     public String getActualRatio() {

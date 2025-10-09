@@ -1,5 +1,6 @@
 package com.gregory.cairly;
 
+import com.gregory.cairly.service.DailyInfoService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -7,7 +8,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CairlyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CairlyApplication.class, args);
+
+        SpringApplication.run(CairlyApplication.class, args);
+
 	}
 
 }

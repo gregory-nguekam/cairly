@@ -7,6 +7,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.cglib.core.Local;
 
+
 import java.time.LocalDate;
 
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
@@ -34,7 +35,7 @@ public class DailyInfoServiceTest {
 
         String currentDate = dailyInfoService.getActualDate();
 
-        //Splitting date into 4 formats( ex: Thursday, 4th July 1955)
+        //Splitting date into 4 formats( ex: Thursday, 04th July 1955)
         assertThat(currentDate.split(" ").length).isEqualTo(4);
 
         String dayOfWeek = currentDate.split(" ")[0];
