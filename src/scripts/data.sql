@@ -15,8 +15,4 @@ INSERT INTO quote (text, author) VALUES ('You miss 100% of the shots you don’t
 INSERT INTO quote (text, author) VALUES ('Don’t watch the clock; do what it does. Keep going.', 'Sam Levenson');
 INSERT INTO quote (text, author) VALUES ('Everything you’ve ever wanted is on the other side of fear.', 'George Addair');
 INSERT INTO quote (text, author) VALUES ('Opportunities don’t happen. You create them.', 'Chris Grosser');
-INSERT INTO quote (text, author) VALUES ('Great things never come from comfort zones.', 'Anonymous');
-INSERT INTO quote (text, author) VALUES ('Push yourself, because no one else is going to do it for you.', 'Anonymous');
-INSERT INTO quote (text, author) VALUES ('Little things make big days.', 'Anonymous');
-INSERT INTO quote (text, author) VALUES ('Don’t stop when you’re tired. Stop when you’re done.', 'Anonymous');
-INSERT INTO quote (text, author) VALUES ('Wake up with determination. Go to bed with satisfaction.', 'Anonymous');
+
