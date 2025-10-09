@@ -5,11 +5,14 @@ import com.gregory.cairly.service.DailyInfoService;
 import org.assertj.core.util.Arrays;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
 import java.time.LocalDate;
+
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class DailyInfoServiceTest {
     String[] daySuffixes = {"st", "th", "nd", "rd"};
+
     @Test
     @DisplayName("should verify if the right suffix is returned")
     void shouldVerifyIfTheRightSuffixIsReturned() {
@@ -29,17 +32,12 @@ public class DailyInfoServiceTest {
         DailyInfoService dailyInfoService = new DailyInfoService();
         String currentDate = dailyInfoService.getActualDate();
 
-        //Splitting date into 4 formats( ex: Thursday, 4th July 1955)
+        //Splitting date into 4 formats( ex: Thursday, 04th July 1955)
         assertThat(currentDate.split(" ").length).isEqualTo(4);
 
         String dayOfWeek = currentDate.split(" ")[0];
-        String dayOfMonthWithSuffix = currentDate.split(" ")[1];
-        if(dayOfMonthWithSuffix.length() == 4) {
-            int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 2));
-            String daySuffix = currentDate.split(" ")[1].substring(2, 4);
-        }
-        int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 1));
-        String daySuffix = currentDate.split(" ")[1].substring(1, 3);
+        int dayOfMonth = Integer.parseInt(currentDate.split(" ")[1].substring(0, 2));
+        String daySuffix = currentDate.split(" ")[1].substring(2, 4);
         String month = currentDate.split(" ")[2];
         int year = Integer.parseInt(currentDate.split(" ")[3]);
 
